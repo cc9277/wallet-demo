@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: my-wallet
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/wallet?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 9001
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+dubbo:
+  application:
+    name: my-wallet-service-provider
+
+  registry:
+    protocol: zookeeper
+    address: zookeeper://127.0.0.1:2181
+
+  protocol:
+    name: dubbo
+    port: 20881
+
+
+  scan:
+    base-packages: com.lpf.wallet.service
+
+    # 盐
+jwt:
+  secret: $2a$10$61ogZY7EXsMDWeVGQpDq3OBF1

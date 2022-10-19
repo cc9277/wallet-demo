@@ -1,0 +1,17 @@
+#dubbo:
+#  application:
+#    name: lpf-wallet-server
+#  registry:
+#    address: zookeeper://127.0.0.1:2181
+#    client: zkClient
+#    timeout: 60000
+#  consumer:
+#    timeout: 60000
+##  protocol:
+##    name: dubbo
+##    port: 20883
+#spring:
+#  application:
+#    name: wallet-web
+#server:
+#  port: 9003

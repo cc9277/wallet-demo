@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: user-center
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/wallet?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    jedis:
+      pool:
+        max-wait: 5000ms
+        max-idle: 100
+        min-idle: 10
+    timeout: 10s
+
+server:
+  port: 9002
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+dubbo:
+  application:
+    name: user-center-service-provider
+
+  registry:
+    protocol: zookeeper
+    address: zookeeper://127.0.0.1:2181
+
+  protocol:
+    name: dubbo
+    port: 20882
+
+  scan:
+    base-packages: com.lpf.user.service
+   # 盐
+jwt:
+  secret: $2a$10$61ogZY7EXsMDWeVGQpDq3OBF1
